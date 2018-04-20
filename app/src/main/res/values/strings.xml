@@ -1,0 +1,10 @@
+<resources>
+    <string name="italkFeedback">MCF i-talk Feedback</string>
+    <string name="app_name">MCF i-talk</string>
+    <string name="give_feedback">Give Feedback</string>
+    <string name="excellent">Excellent</string>
+    <string name="good">Good</string>
+    <string name="satisfactory">Satisfactory</string>
+    <string name="submit">Submit</string>
+    <string name="employee_code">Employee Code</string>
+</resources>
