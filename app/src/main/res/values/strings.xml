@@ -1,18 +1,40 @@
 <resources>
-    <string name="italkFeedback">MCF i-talk Feedback</string>
+    /*
+    *  MCF i-talk
+    */
     <string name="app_name">MCF i-talk</string>
+    <string name="mcf_i_talk">MCF i-talk</string>
+    <string name="italkFeedback">MCF i-talk Feedback</string>
+
+    /*
+    * Buttons
+    */
     <string name="give_feedback">Give Feedback</string>
+    <string name="submit">Submit</string>
+    <string name="update">Update</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+
+
+    /*
+    * Opinion Radio Button Options
+    */
     <string name="excellent">Excellent</string>
     <string name="good">Good</string>
     <string name="satisfactory">Satisfactory</string>
-    <string name="submit">Submit</string>
+
+
+    /*
+    * TextView Hints
+    */
     <string name="employee_code">Employee Code</string>
-    <string name="questionarie_body">How well satisfied are you with respect to the following?</string>
-    <string name="settings">Settings</string>
-    <string name="about">About</string>
-    <string name="update">Update</string>
     <string name="speaker">Speaker</string>
     <string name="lecture_number">Lecture Number</string>
+
+    /*
+    * Descriptions
+    */
+    <string name="questionarie_body">How well satisfied are you with respect to the following?</string>
     <string name="i_talk_about">Please provide your valuable feedback and help us make i-talk Awesome :)</string>
-    <string name="mcf_i_talk">MCF i-talk</string>
+
 </resources>

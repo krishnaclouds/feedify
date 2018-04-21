@@ -33,7 +33,8 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/speakerName"
         app:layout_constraintStart_toStartOf="@+id/speakerName"
-        app:layout_constraintTop_toBottomOf="@+id/speakerName" />
+        app:layout_constraintTop_toBottomOf="@+id/speakerName"
+        tools:ignore="TextFields" />
 
     <Button
         android:id="@+id/updateSessionDetails"
