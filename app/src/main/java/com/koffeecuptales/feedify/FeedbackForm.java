@@ -1,6 +1,7 @@
 package com.koffeecuptales.feedify;
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -40,8 +41,6 @@ public class FeedbackForm extends AppCompatActivity {
         questionNumber = questionNumber - 1;
 
         optionsGroup = findViewById(R.id.optionsGroup);
-
-
     }
 
     @Override
@@ -64,8 +63,12 @@ public class FeedbackForm extends AppCompatActivity {
 
             dataToSave = dataToSave + question + "," + response + "\n";
 
+            SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+            String lectureNumber = sharedPref.getString(Constants.LECTURE_NUMBER, "1");
+            String speaker = sharedPref.getString(Constants.SPEAKER, "speaker");
+
             getPermissionToWriteIfRequired();
-            cw.writeToFile(dataToSave);
+            cw.writeToFile(dataToSave, lectureNumber, speaker);
 
             Toast.makeText(this, "Thankyou for your valuble feedback", Toast.LENGTH_SHORT).show();
             finish();

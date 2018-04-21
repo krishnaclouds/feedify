@@ -10,15 +10,13 @@ import java.io.IOException;
 
 class CSVWriter {
 
-    QuestionSet questionSet = new QuestionSet();
-
-    public void writeToFile(String content) {
+    public void writeToFile(String content, String lectureNumber, String speaker) {
 
         if (!isExternalStorageWritable()) {
             return;
         }
 
-        File file = new File(getFileStorageDir("ISROFeedBackData"), "lecture_1_krishna.csv");
+        File file = new File(getFileStorageDir("ISROFeedBackData"), "lecure_" + lectureNumber + "_" + speaker + ".csv");
 
         try {
             FileOutputStream outputStream = new FileOutputStream(file, true);
@@ -27,7 +25,6 @@ class CSVWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private boolean isExternalStorageWritable() {
@@ -47,6 +44,4 @@ class CSVWriter {
 
         return dir;
     }
-
-
 }

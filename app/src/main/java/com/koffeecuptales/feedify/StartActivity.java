@@ -2,12 +2,16 @@ package com.koffeecuptales.feedify;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -23,6 +27,24 @@ public class StartActivity extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog diaBox = AskOption();
         diaBox.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.menu_settings){
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+        } else if(item.getItemId() == R.id.menu_about){
+            Intent intent = new Intent(this, About.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private AlertDialog AskOption()
