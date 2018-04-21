@@ -58,6 +58,8 @@ public class FeedbackForm extends AppCompatActivity {
         String response = optionSelected.getText().toString();
         String question = questionSet.getQuestion(questionNumber + 1);
 
+        optionsGroup.check(R.id.option1);
+
         if (questionNumber < 0) {
 
             dataToSave = dataToSave + question + "," + response + "\n";
