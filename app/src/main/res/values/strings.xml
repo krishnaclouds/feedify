@@ -7,4 +7,5 @@
     <string name="satisfactory">Satisfactory</string>
     <string name="submit">Submit</string>
     <string name="employee_code">Employee Code</string>
+    <string name="questionarie_body">How well satisfied are you with respect to the following?</string>
 </resources>
