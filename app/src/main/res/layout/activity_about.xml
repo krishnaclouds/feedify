@@ -17,7 +17,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/isrologo_round" />
+        app:srcCompat="@mipmap/isrologo_round"
+        android:layout_marginRight="103dp" />
 
     <TextView
         android:id="@+id/textView2"

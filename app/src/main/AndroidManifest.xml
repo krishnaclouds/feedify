@@ -24,7 +24,7 @@
             android:name=".FeedbackForm"
             android:label="@string/italkFeedback" />
         <activity android:name=".Settings" />
-        <activity android:name=".About"></activity>
+        <activity android:name=".About" />
     </application>
 
 </manifest>

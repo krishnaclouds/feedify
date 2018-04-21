@@ -1,6 +1,7 @@
 package com.koffeecuptales.feedify;
 
 
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
@@ -16,8 +17,7 @@ class CSVWriter {
             return;
         }
 
-        File file = new File(getFileStorageDir("ISROFeedBackData"), "lecure_" + lectureNumber + "_" + speaker + ".csv");
-
+        File file = new File(getFileStorageDir(), "lecure_" + lectureNumber + "_" + speaker + ".csv");
         try {
             FileOutputStream outputStream = new FileOutputStream(file, true);
             outputStream.write(content.getBytes());
@@ -31,10 +31,16 @@ class CSVWriter {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
     }
 
+    private File getFileStorageDir() {
 
-    private File getFileStorageDir(String dirName) {
+        File dir;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "ISROFeedBackData");
+        } else {
+            dir = new File(Environment.getExternalStorageDirectory() + "/Documents");
+        }
 
-        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), dirName);
+        Log.d("FILES", "" + dir);
 
         if (dir.exists()) {
             return dir;
