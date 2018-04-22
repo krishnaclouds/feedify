@@ -10,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -52,9 +53,9 @@ public class FeedbackForm extends AppCompatActivity {
     private int questionNumber;
 
     /*
-    * Shared Preferences object. Used to retrieve the lectureNumber and Speaker as and when needed!!
+    * Progressbar Object.
     * */
-    private final SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,10 +76,15 @@ public class FeedbackForm extends AppCompatActivity {
         questionNumber = questionSet.getNumberofQuestions() - 1;
         questionTextView = findViewById(R.id.questionTextView);
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(6);
+        progressBar.setProgress(questionSet.getNumberofQuestions() - questionNumber);
+
         /*
         * Call this method to set the First Question, just while laughing the Activity onCreate.
         * And after that, update the Question, whenever user submits an answer.
         * */
+
         updateQuestion(questionNumber);
         questionNumber = questionNumber - 1;
 
@@ -89,10 +95,12 @@ public class FeedbackForm extends AppCompatActivity {
     * Helper Methods -> Name should help identify, what they do. Just go with the flow.
     * */
     private String getSpeakerName(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
         return sharedPref.getString(Constants.SPEAKER, "speaker");
     }
 
     private String getLecutureNubmer(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
         return sharedPref.getString(Constants.LECTURE_NUMBER, "1");
     }
 
@@ -166,6 +174,7 @@ public class FeedbackForm extends AppCompatActivity {
             /*
             * Append the question and response to dataToSave and populate next question.
             * */
+            progressBar.setProgress(questionSet.getNumberofQuestions() - questionNumber);
             dataToSave = dataToSave + question + "," + response + ",";
             updateQuestion(questionNumber);
             questionNumber = questionNumber - 1;
@@ -203,6 +212,7 @@ public class FeedbackForm extends AppCompatActivity {
                 * */
                 if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
+                    SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
                     String lectureNumber = sharedPref.getString(Constants.LECTURE_NUMBER, "1");
                     String speaker = sharedPref.getString(Constants.SPEAKER, "speaker");
                     cw.writeToFile(dataToSave, lectureNumber, speaker);
