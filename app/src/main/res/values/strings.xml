@@ -1,6 +1,6 @@
 <resources>
     /*
-    *  MCF i-talk
+    * MCF i-talk
     */
     <string name="app_name">MCF i-talk</string>
     <string name="mcf_i_talk">MCF i-talk</string>
@@ -36,5 +36,7 @@
     */
     <string name="questionarie_body">How well satisfied are you with respect to the following?</string>
     <string name="i_talk_about">Please provide your valuable feedback and help us make i-talk Awesome :)</string>
+    <string name="lectureby">Speaker:</string>
+    <string name="lectureNo">Lecture Number:</string>
 
 </resources>

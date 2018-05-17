@@ -3,6 +3,7 @@ package com.koffeecuptales.feedify;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /*
@@ -54,6 +56,11 @@ public class StartActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, Constants.REQUEST_EXTERNAL_STORAGE);
             }
         }
+
+        TextView lectureBy = (TextView) findViewById(R.id.lectureby);
+        lectureBy.setText(String.format("%s%s", getString(R.string.lectureby), getSpeakerName()));
+        TextView lectureNo = (TextView) findViewById(R.id.lectureNo);
+        lectureNo.setText(String.format("%s%s", getString(R.string.lectureNo), getLecutureNubmer()));
     }
 
     /*
@@ -138,9 +145,20 @@ public class StartActivity extends AppCompatActivity {
             * Starting the New Intent, along with the extra Parameter -> EmployeeCode
             * key -> Constants.EMPLOYEE_CODE value -> employeeCode.
             * */
-            Intent intent = new Intent(this, FeedbackForm.class);
+            // Intent intent = new Intent(this, FeedbackForm.class);
+            Intent intent = new Intent(this, feedback_form_new.class);
             intent.putExtra(Constants.EMPLOYEE_CODE, employeeCode);
             startActivity(intent);
         }
+    }
+
+    private String getSpeakerName(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+        return sharedPref.getString(Constants.SPEAKER, "speaker");
+    }
+
+    private String getLecutureNubmer(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+        return sharedPref.getString(Constants.LECTURE_NUMBER, "1");
     }
 }
