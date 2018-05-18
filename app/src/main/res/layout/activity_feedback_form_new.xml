@@ -20,7 +20,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Rate your experience based on the following parameters:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
         <TextView
             android:id="@+id/q1"
@@ -30,12 +30,8 @@
             android:layout_marginLeft="2dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
-            android:alpha="50"
             android:gravity="center"
-            android:text="Presentation Skills of the Speaker"
-
-            android:textSize="18sp"
-            android:textStyle="italic" />
+            android:text="Presentation skills of the speaker"/>
 
         <RadioGroup
             android:id="@+id/a1"
@@ -71,7 +67,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="Questions Sessions"
+            android:text="Questionnaire Session"
              />
 
         <RadioGroup
@@ -186,8 +182,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="Relevance of the Topic"
-            android:textSize="18sp" />
+            android:text="Relevance of the Topic" />
 
         <RadioGroup
             android:id="@+id/a5"
