@@ -1,6 +1,7 @@
 package com.koffeecuptales.feedify;
 
 import android.content.SharedPreferences;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,9 +33,12 @@ public class Settings extends AppCompatActivity {
 
         EditText speakerName = findViewById(R.id.speakerName);
         EditText lectureNumber = findViewById(R.id.lectureNumber);
+        EditText lectureTitle = findViewById(R.id.lectureTitle);
+        EditText lectureDate = findViewById(R.id.date);
 
-        if(speakerName.getText().toString().equals("") || lectureNumber.getText().toString().equals("")){
-            Toast.makeText(this, "It wouldn't be great to save nothing :(", Toast.LENGTH_SHORT).show();
+        if(speakerName.getText().toString().equals("") || lectureNumber.getText().toString().equals("") ||
+                lectureTitle.getText().toString().equals("") || lectureDate.getText().toString().equals("")){
+            Toast.makeText(this, "Please fill in all the details.", Toast.LENGTH_SHORT).show();
         } else{
 
             /*
@@ -44,6 +48,8 @@ public class Settings extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString(Constants.SPEAKER, speakerName.getText().toString());
             editor.putString(Constants.LECTURE_NUMBER, lectureNumber.getText().toString());
+            editor.putString(Constants.LECTURE_TITLE, lectureTitle.getText().toString());
+            editor.putString(Constants.LECTURE_DATE, lectureDate.getText().toString());
             editor.apply();
 
             //TODO remove this later. - Updating speaker and lecture on the start page.
@@ -56,13 +62,15 @@ public class Settings extends AppCompatActivity {
 
             speakerName.setText("");
             lectureNumber.setText("");
+            lectureTitle.setText("");
+            lectureDate.setText("");
             Toast.makeText(this, "Saved the details", Toast.LENGTH_SHORT).show();
         }
     }
 
     private String getSpeakerName(){
         SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
-        return sharedPref.getString(Constants.SPEAKER, "speaker");
+        return sharedPref.getString(Constants.SPEAKER, "MCF - ISRO");
     }
 
     private String getLecutureNubmer(){

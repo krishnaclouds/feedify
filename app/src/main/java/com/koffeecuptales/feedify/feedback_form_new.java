@@ -66,34 +66,32 @@ public class feedback_form_new extends AppCompatActivity {
     }
 
     public void submit_new(View view){
-        Log.d("Bala Krishna:" , a1.toString());
         int optionSelectedId1 = a1.getCheckedRadioButtonId();
         RadioButton r1 = findViewById(optionSelectedId1);
-        Log.d("Bala", r1.toString());
         String res1 = r1.getText().toString();
         String qes1 = q1.getText().toString();
 
-        int optionSelectedId2 = a1.getCheckedRadioButtonId();
-        RadioButton r2 = findViewById(optionSelectedId1);
+        int optionSelectedId2 = a2.getCheckedRadioButtonId();
+        RadioButton r2 = findViewById(optionSelectedId2);
         String res2 = r2.getText().toString();
         String qes2 = q2.getText().toString();
 
-        int optionSelectedId3 = a1.getCheckedRadioButtonId();
-        RadioButton r3 = findViewById(optionSelectedId1);
+        int optionSelectedId3 = a3.getCheckedRadioButtonId();
+        RadioButton r3 = findViewById(optionSelectedId3);
         String res3 = r3.getText().toString();
         String qes3 = q3.getText().toString();
 
-        int optionSelectedId4 = a1.getCheckedRadioButtonId();
-        RadioButton r4 = findViewById(optionSelectedId1);
+        int optionSelectedId4 = a4.getCheckedRadioButtonId();
+        RadioButton r4 = findViewById(optionSelectedId4);
         String res4 = r4.getText().toString();
         String qes4 = q4.getText().toString();
 
-        int optionSelectedId5 = a1.getCheckedRadioButtonId();
-        RadioButton r5 = findViewById(optionSelectedId1);
+        int optionSelectedId5 = a5.getCheckedRadioButtonId();
+        RadioButton r5 = findViewById(optionSelectedId5);
         String res5 = r5.getText().toString();
         String qes5 = q5.getText().toString();
 
-        String dataToSave = q1 + "," + r1 + "," + q2 + "," + r2 + "," + q3 + "," + r3 + "," + q4 + "," + r4 + "," + q5 + "," + r5 + "\n";
+        String dataToSave = qes1 + "," + res1 + "," + qes2 + "," + res2 + "," + qes3 + "," + res3 + "," + qes4 + "," + res4 + "," + qes5 + "," + res5 + "\n";
 
         dataToSave = employeeCode + "," + dataToSave;
 

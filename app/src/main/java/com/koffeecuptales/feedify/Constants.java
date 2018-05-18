@@ -19,6 +19,8 @@ class Constants {
      * */
     public static final String LECTURE_NUMBER = "com.koffeecuptales.feedify.extra.lectureNumber";
     public static final String SPEAKER = "com.koffeecuptales.feedify.extra.speaker";
+    public static final String LECTURE_TITLE = "com.koffeecuptales.feedify.extra.lectureTitle";
+    public static final String LECTURE_DATE = "com.koffeecuptales.feedify.extra.lectureDate";
 
     /*
     * Intent passover keys

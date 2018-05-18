@@ -1,58 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_start"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.koffeecuptales.feedify.StartActivity"
-    tools:layout_editor_absoluteY="56dp">
-
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="104dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:onClick="startFeedback"
-        android:text="@string/give_feedback"
-        android:textColorLink="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/employeeCode"
-        android:layout_width="250dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="76dp"
-        android:ems="10"
-        android:hint="@string/employee_code"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    android:paddingTop="?android:actionBarSize"
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
     <TextView
         android:id="@+id/lectureby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Lecure by"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintBottom_toTopOf="@+id/lectureNo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:paddingTop="32dp"
+        android:text="Lecture by"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_lectureTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lecture Title"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/lectureNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
         android:text="Lecture No"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintBottom_toTopOf="@+id/employeeCode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_gravity="center_horizontal"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_lectureDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/employeeCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/employee_code"
+        android:inputType="text"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:onClick="startFeedback"
+        android:text="@string/give_feedback"
+        android:textColorLink="@android:color/holo_orange_dark"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>

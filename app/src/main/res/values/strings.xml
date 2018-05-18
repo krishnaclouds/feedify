@@ -38,5 +38,7 @@
     <string name="i_talk_about">Please provide your valuable feedback and help us make i-talk Awesome :)</string>
     <string name="lectureby">Speaker: </string>
     <string name="lectureNo">Lecture Number: </string>
+    <string name="lecture_title">Lecture Title</string>
+    <string name="date">Date</string>
 
 </resources>

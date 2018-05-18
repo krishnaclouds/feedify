@@ -65,9 +65,9 @@ public class StartActivity extends AppCompatActivity {
 
     public void updateDetails(){
         TextView lectureBy = (TextView) findViewById(R.id.lectureby);
-        lectureBy.setText(String.format("%s%s", getString(R.string.lectureby), getSpeakerName()));
+        lectureBy.setText(getString(R.string.lectureby) + " " + getSpeakerName());
         TextView lectureNo = (TextView) findViewById(R.id.lectureNo);
-        lectureNo.setText(String.format("%s%s", getString(R.string.lectureNo), getLecutureNubmer()));
+        lectureNo.setText(getString(R.string.lectureNo) + " " + getLecutureNubmer());
     }
 
     /*
@@ -161,7 +161,7 @@ public class StartActivity extends AppCompatActivity {
 
     private String getSpeakerName(){
         SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
-        return sharedPref.getString(Constants.SPEAKER, "speaker");
+        return sharedPref.getString(Constants.SPEAKER, "MCF - ISRO");
     }
 
     private String getLecutureNubmer(){

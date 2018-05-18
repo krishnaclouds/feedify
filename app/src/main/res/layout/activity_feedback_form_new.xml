@@ -33,7 +33,7 @@
             android:alpha="50"
             android:gravity="center"
             android:text="Presentation Skills of the Speaker"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
+
             android:textSize="18sp"
             android:textStyle="italic" />
 
@@ -72,7 +72,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Questions Sessions"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
+             />
 
         <RadioGroup
             android:id="@+id/a2"
@@ -109,7 +109,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Faculty"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
+
             android:textSize="18sp"
             android:textStyle="italic" />
 
@@ -148,7 +148,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Content of the course"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
+
             android:textSize="18sp"
             android:textStyle="italic" />
 
@@ -187,7 +187,6 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Relevance of the Topic"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
             android:textSize="18sp" />
 
         <RadioGroup

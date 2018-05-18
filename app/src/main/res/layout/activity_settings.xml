@@ -4,49 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    tools:context=".Settings"
+    tools:layout_editor_absoluteY="56dp">
 
 
     <EditText
         android:id="@+id/speakerName"
-        android:layout_width="351dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginTop="68dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/speaker"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/lectureTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
 
     <EditText
         android:id="@+id/lectureNumber"
-        android:layout_width="357dp"
-        android:layout_height="68dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/lecture_number"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/speakerName"
-        app:layout_constraintStart_toStartOf="@+id/speakerName"
-        app:layout_constraintTop_toBottomOf="@+id/speakerName"
-        tools:ignore="TextFields" />
+        app:layout_constraintBottom_toTopOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lectureTitle"
+        tools:ignore="TextFields"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"/>
 
     <Button
         android:id="@+id/updateSessionDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="77dp"
         android:onClick="updateSessionDetails"
         android:text="@string/update"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        android:gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/lectureTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="@string/lecture_title"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/lectureNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speakerName" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="@string/date"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/updateSessionDetails"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lectureNumber" />
 </android.support.constraint.ConstraintLayout>
