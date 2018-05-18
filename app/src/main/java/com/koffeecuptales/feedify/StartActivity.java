@@ -63,6 +63,13 @@ public class StartActivity extends AppCompatActivity {
         lectureNo.setText(String.format("%s%s", getString(R.string.lectureNo), getLecutureNubmer()));
     }
 
+    public void updateDetails(){
+        TextView lectureBy = (TextView) findViewById(R.id.lectureby);
+        lectureBy.setText(String.format("%s%s", getString(R.string.lectureby), getSpeakerName()));
+        TextView lectureNo = (TextView) findViewById(R.id.lectureNo);
+        lectureNo.setText(String.format("%s%s", getString(R.string.lectureNo), getLecutureNubmer()));
+    }
+
     /*
     * The next tow functions, basically over-writes the Back button and prompts for user conifirmation to exit the app.
     * */

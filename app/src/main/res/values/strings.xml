@@ -36,7 +36,7 @@
     */
     <string name="questionarie_body">How well satisfied are you with respect to the following?</string>
     <string name="i_talk_about">Please provide your valuable feedback and help us make i-talk Awesome :)</string>
-    <string name="lectureby">Speaker:</string>
-    <string name="lectureNo">Lecture Number:</string>
+    <string name="lectureby">Speaker: </string>
+    <string name="lectureNo">Lecture Number: </string>
 
 </resources>

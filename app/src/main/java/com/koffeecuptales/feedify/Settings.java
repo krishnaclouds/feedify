@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -45,6 +46,10 @@ public class Settings extends AppCompatActivity {
             editor.putString(Constants.LECTURE_NUMBER, lectureNumber.getText().toString());
             editor.apply();
 
+            //TODO remove this later. - Updating speaker and lecture on the start page.
+//            StartActivity startActivity = new StartActivity();
+//            startActivity.updateDetails();
+
             /*
             * TODO 6.change editor.apply() to editor.commit()
             * */
@@ -53,6 +58,16 @@ public class Settings extends AppCompatActivity {
             lectureNumber.setText("");
             Toast.makeText(this, "Saved the details", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private String getSpeakerName(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+        return sharedPref.getString(Constants.SPEAKER, "speaker");
+    }
+
+    private String getLecutureNubmer(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+        return sharedPref.getString(Constants.LECTURE_NUMBER, "1");
     }
 
     @Override
