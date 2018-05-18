@@ -17,12 +17,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Lecture Title"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:text="Lecture By: "
         android:id="@+id/lectureby"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -33,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:text="Lecture No"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:paddingTop="10dp"/>
@@ -42,6 +45,7 @@
         android:layout_width="147dp"
         android:layout_height="32dp"
         android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:layout_marginBottom="8dp"
         android:text="Date"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -55,7 +59,7 @@
         android:layout_marginBottom="32dp"
         android:hint="@string/employee_code"
         android:inputType="text"
-        android:paddingTop="10dp"/>
+        android:paddingTop="32dp"/>
 
     <Button
         android:id="@+id/button"
@@ -68,6 +72,6 @@
         android:onClick="startFeedback"
         android:text="@string/give_feedback"
         android:textColorLink="@android:color/holo_orange_dark"
-        android:paddingTop="10dp"/>
+        android:paddingTop="5dp"/>
 
 </LinearLayout>

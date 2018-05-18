@@ -103,7 +103,7 @@ public class feedback_form_new extends AppCompatActivity {
             }
         } else {
             cw.writeToFile(dataToSave, getLecutureNubmer(), getSpeakerName());
-            Toast.makeText(this, "Thank you for your valuble feedback", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Thank you for the feedback.Your Feedback is valuable to us.", Toast.LENGTH_SHORT).show();
             finish();
         }
 

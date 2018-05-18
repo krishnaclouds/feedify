@@ -19,19 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/*
-* The App Basically starts in here!!
-* */
-
-/*
-* APP level to-do's remaining.
-* TODO 8.Implement settings page proerly, so that Admin has access to certain things specifically - Admin Login
-* TODO 9.Add a Splash Screen
-* TODO 10.Fill and complete About i-talk page.
-* TODO 11.Implement 'Create Questionary' feature
-* TODO 12.Implement 'Select Questionary' feature -> so that, Admin can select a specific QuestionSet before lecture
-* TODO 13.Implement Read and Write Questionary to and from Excel Sheet, so that, it is easy to upload them and reuse them
-* */
+import java.util.Calendar;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -40,15 +28,8 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        /*
-        * Since, The App title is set from Firt Activity App bar androdi:name, to make them different,
-        * we have to rewrite the app bar title, here manually
-        * */
-        this.setTitle(getResources().getString(R.string.italkFeedback));
-
-        /*
-        * Asking the user permission to read-write in memory card, if he hasn't already granted them during app install.
-        * */
+//        this.setTitle(getResources().getString(R.string.italkFeedback));
+        this.setTitle("MCF i-talk (" + getLectureDate() + ")\n");
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             boolean hasPermission = (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
@@ -58,21 +39,25 @@ public class StartActivity extends AppCompatActivity {
         }
 
         TextView lectureBy = (TextView) findViewById(R.id.lectureby);
-        lectureBy.setText(String.format("%s%s", getString(R.string.lectureby), getSpeakerName()));
+        lectureBy.setText(String.format("%s %s", "by: ", getSpeakerName()));
         TextView lectureNo = (TextView) findViewById(R.id.lectureNo);
-        lectureNo.setText(String.format("%s%s", getString(R.string.lectureNo), getLecutureNubmer()));
+        lectureNo.setText(String.format("%s %s", getString(R.string.lectureNo), getLecutureNubmer()));
+        TextView tv_lectuteTitle = findViewById(R.id.tv_lectureTitle);
+        tv_lectuteTitle.setText(getLectureTitle());
+        TextView tv_lectureDate = findViewById(R.id.tv_lectureDate);
+        tv_lectureDate.setText(getLectureDate());
     }
 
     public void updateDetails(){
-        TextView lectureBy = (TextView) findViewById(R.id.lectureby);
-        lectureBy.setText(getString(R.string.lectureby) + " " + getSpeakerName());
-        TextView lectureNo = (TextView) findViewById(R.id.lectureNo);
-        lectureNo.setText(getString(R.string.lectureNo) + " " + getLecutureNubmer());
+        TextView lectureBy = findViewById(R.id.lectureby);
+        lectureBy.setText(String.format("%s %s", getString(R.string.lectureby), getSpeakerName()));
+        TextView lectureNo = findViewById(R.id.lectureNo);
+        lectureNo.setText(String.format("%s %s", getString(R.string.lectureNo), getLecutureNubmer()));
+        TextView tv_lectuteTitle = findViewById(R.id.tv_lectureTitle);
+        tv_lectuteTitle.setText(getLectureTitle());
+        TextView tv_lectureDate = findViewById(R.id.tv_lectureDate);
+        tv_lectureDate.setText(getLectureDate());
     }
-
-    /*
-    * The next tow functions, basically over-writes the Back button and prompts for user conifirmation to exit the app.
-    * */
 
     @Override
     public void onBackPressed() {
@@ -98,12 +83,6 @@ public class StartActivity extends AppCompatActivity {
                 .create();
     }
 
-
-    /*
-    * Creating the main_menu to the StartActivity.
-    * It has two options now, Settings and About.
-    * Selecting on any of them, takes user to the concerned Activity
-    * */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -122,36 +101,18 @@ public class StartActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    * OnClick Listener for 'Give Feedback' button.
-    * I prefer this way of declaring onClick functions rather then <buttonId>.addOnClickListener() style,
-    * beacuse, it gives us the flexibility to reuse the Method!!
-    * */
     public void startFeedback(View view) {
 
-        /*
-        * Get the Employee Code from user and then, send it to the Next Activity -> FeedbackForm,
-        * so that we can include it in the Data to be saved
-        * */
         String employeeCode;
         EditText editText = findViewById(R.id.employeeCode);
         if(editText.getText().toString().equalsIgnoreCase("")){
-            /*
-            * This is snackbar, try it; Its cool!
-            * */
+
             Snackbar.make(findViewById(R.id.activity_start), "Please Provide your Employee Code!", Snackbar.LENGTH_LONG).show();
         } else {
             employeeCode = editText.getText().toString();
 
-            /*
-            * Erasing the Employee code from EditView after saving it
-            * */
             editText.setText("");
 
-            /*
-            * Starting the New Intent, along with the extra Parameter -> EmployeeCode
-            * key -> Constants.EMPLOYEE_CODE value -> employeeCode.
-            * */
             // Intent intent = new Intent(this, FeedbackForm.class);
             Intent intent = new Intent(this, feedback_form_new.class);
             intent.putExtra(Constants.EMPLOYEE_CODE, employeeCode);
@@ -167,5 +128,15 @@ public class StartActivity extends AppCompatActivity {
     private String getLecutureNubmer(){
         SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
         return sharedPref.getString(Constants.LECTURE_NUMBER, "1");
+    }
+
+    private String getLectureTitle(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+        return sharedPref.getString(Constants.LECTURE_TITLE, "Welcome to MCF i-talk");
+    }
+
+    private String getLectureDate(){
+        SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
+        return sharedPref.getString(Constants.LECTURE_DATE, "");
     }
 }
