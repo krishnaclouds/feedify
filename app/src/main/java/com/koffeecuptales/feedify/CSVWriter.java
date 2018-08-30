@@ -39,6 +39,7 @@ class CSVWriter {
             /*
             * TODO 1.Move the File write process to background.
             * */
+            Log.d("FILE_NAME", file.toString());
             FileOutputStream outputStream = new FileOutputStream(file, true);
             outputStream.write(content.getBytes());
             outputStream.close();

@@ -15,10 +15,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class StartActivity extends AppCompatActivity {
@@ -46,6 +49,13 @@ public class StartActivity extends AppCompatActivity {
         tv_lectuteTitle.setText(getLectureTitle());
         TextView tv_lectureDate = findViewById(R.id.tv_lectureDate);
         tv_lectureDate.setText(getLectureDate());
+
+
+        AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.employeeCode);
+        String[] employees = getResources().getStringArray(R.array.employeeIdArray);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_selectable_list_item, employees);
+        textView.setAdapter(adapter);
+
     }
 
     public void updateDetails(){
@@ -104,7 +114,8 @@ public class StartActivity extends AppCompatActivity {
     public void startFeedback(View view) {
 
         String employeeCode;
-        EditText editText = findViewById(R.id.employeeCode);
+
+        AutoCompleteTextView editText = (AutoCompleteTextView) findViewById(R.id.employeeCode);
         if(editText.getText().toString().equalsIgnoreCase("")){
 
             Snackbar.make(findViewById(R.id.activity_start), "Please Provide your Employee Code!", Snackbar.LENGTH_LONG).show();
@@ -136,7 +147,12 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private String getLectureDate(){
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        String date = sdf.format(c.getTime());
+
         SharedPreferences sharedPref = this.getSharedPreferences(Constants.SHARED_PREFERENCES, MODE_PRIVATE);
-        return sharedPref.getString(Constants.LECTURE_DATE, "");
+        return sharedPref.getString(Constants.LECTURE_DATE, date);
     }
 }

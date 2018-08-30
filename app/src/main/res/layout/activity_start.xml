@@ -51,7 +51,7 @@
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:paddingTop="10dp"/>
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/employeeCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

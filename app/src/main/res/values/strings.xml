@@ -41,4 +41,16 @@
     <string name="lecture_title">Lecture Title</string>
     <string name="date">Date</string>
 
+    /* Employee Data*/
+    <string-array name="employeeIdArray">
+        <item>Bala</item>
+        <item>Chandni</item>
+        <item>Suruchi</item>
+        <item>Somesh</item>
+        <item>Aseem</item>
+        <item>Kamal</item>
+        <item>Sawkau</item>
+        <item>Anisha</item>
+    </string-array>
+
 </resources>
